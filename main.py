@@ -44,10 +44,6 @@ st.code(code, language='python')
 image = Image.open('ttest_rel.png')
 st.image(image)
 
-# 変数設定の注意点
-image = Image.open('ttest_rel_attention.png')
-st.image(image)
-
 # 使い方動画
 # video_file = open('雨音子.mp4', 'rb')  # 動画はテスト
 # video_bytes = video_file.read()
@@ -75,6 +71,11 @@ if st.checkbox('データフレームの表示'):
 # 変数選択フォーム
 with st.form(key='variable_form'):
     st.subheader("分析に使用する変数（観測値、測定値）の選択")
+
+    # 変数設定の注意点
+    if st.checkbox('注意点の表示'):
+        image = Image.open('ttest_rel_attention.png')
+        st.image(image)
 
     # 観測値と測定値のセット
     ovList = df.columns.tolist()
