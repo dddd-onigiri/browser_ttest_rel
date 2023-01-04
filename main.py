@@ -125,7 +125,14 @@ with st.form(key='analyze_form'):
 
         # 各値の初期化
         n = 1
-        # summaryList = [DependentVariable]
+        
+        # リストの名前を取得
+        summaryList = []
+        for sl in range(ovRangeView):
+            summaryList = f'● 【'f'{(ObservedVariable[n])}'f'】　→　【'f'{(MeasuredVariable[n])}】'
+            ovRangeView += 1
+
+            
         summaryColumns = ["有効N", "平均値", "中央値", "標準偏差", "分散",
                           "最小値", "最大値"]
 
@@ -134,10 +141,11 @@ with st.form(key='analyze_form'):
         df00_list = df00_list + MeasuredVariable
         df00 = df[df00_list]
 
-'''
+
         # サマリ(df0)用のデータフレームのセット
         df0 = pd.DataFrame(index=summaryList, columns=summaryColumns)
 
+'''
         # サマリ(df0)用のデータフレームに平均値と標準偏差を追加
         for summary in range(dvRange):
             # 列データの取得（nは従属変数の配列番号）
