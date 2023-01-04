@@ -123,10 +123,9 @@ with st.form(key='analyze_form'):
         # リストの名前を取得
         summaryList = []
         for ListAppend in range(ovRange):
-            summaryList.append(f'{(ObservedVariable[m])}'f'】　→　【'f'{(MeasuredVariable[m])}】')
-            st.write(summaryList)
+            summaryList.append(
+                f'【'f'{(ObservedVariable[m])}'f'】　→　【'f'{(MeasuredVariable[m])}】')
             m += 1
-        st.write(f'【'f'{(ObservedVariable[m])}'f'】　→　【'f'{(MeasuredVariable[m])}】')
 
         summaryColumns = ["有効N", "平均値", "中央値", "標準偏差", "分散",
                           "最小値", "最大値"]
@@ -135,6 +134,8 @@ with st.form(key='analyze_form'):
         df00_list = [ObservedVariable]
         df00_list = df00_list + MeasuredVariable
         df00 = df[df00_list]
+
+        st.write(df00)
 
         # サマリ(df0)用のデータフレームのセット
         df0 = pd.DataFrame(index=summaryList, columns=summaryColumns)
