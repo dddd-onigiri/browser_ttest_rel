@@ -216,6 +216,7 @@ with st.form(key='analyze_form'):
         yn = df1.columns.get_loc("測定値M")
 
         for interpretation in range(ovRange):
+            vn = VariableList[n]
             if df1.iat[n, sign_n] == "**":
                 if df1.iat[n, xn] > df1.iat[n, yn]:
                     st.write(f'{vn}には有位な差が生まれる（ 観測値　＞　測定値 ）')
