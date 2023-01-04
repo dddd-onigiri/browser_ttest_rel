@@ -48,7 +48,7 @@ st.image(image)
 # st.video(video_bytes)
 
 # デモ用ファイル
-df = pd.read_excel('ttest_demo_rel.xlsx', sheet_name=0)
+df = pd.read_excel('ttest_rel_demo.xlsx', sheet_name=0)
 
 # xlsxファイルのアップロード
 upload_files_xlsx = st.file_uploader("ファイルアップロード", type='xlsx')
