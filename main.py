@@ -109,7 +109,7 @@ with st.form(key='check_form'):
         n = 0
         ovRangeView = len(ObservedVariable)
         mvRangeView = len(MeasuredVariable)
-        for dvListView in range(dvRangeView):
+        for dvListView in range(ovRangeView):
             st.write(f'● 'f'{(ObservedVariable[n])}'f'→'f'{(MeasuredVariable[n])}')
             n += 1
         st.write('　に有意な差が生まれるか検定します。')
