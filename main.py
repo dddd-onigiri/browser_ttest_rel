@@ -186,6 +186,7 @@ with st.form(key='analyze_form'):
             n += 1
 
         st.dataframe(df1)
+        st.write(ttest)
 
         # サンプルサイズの取得
         sample_n = len(dfOv)
