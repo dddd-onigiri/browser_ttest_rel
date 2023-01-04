@@ -7,8 +7,7 @@ import pandas as pd
 # import japanize_matplotlib
 from scipy import stats
 from PIL import Image
-from statistics import median, variance
-from statsmodels.stats.power import tt_ind_solve_power
+# from statistics import median, variance
 
 st.set_page_config(page_title="ブラウザt検定(対応あり)", layout="wide")
 
