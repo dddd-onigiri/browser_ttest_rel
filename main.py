@@ -15,6 +15,8 @@ st.caption("Created by Daiki Ito")
 st.write("")
 st.subheader("ブラウザでt検定　→　表　→　解釈まで出力できるウェブアプリです。")
 st.write("iPad等でも分析を行うことができます")
+st.write('対応なしはコチラ→',
+         'https://dddd-onigiri-browser-ttest-main-468zyy.streamlit.app/')
 st.write("")
 
 st.subheader("【注意事項】")
@@ -41,6 +43,10 @@ st.code(code, language='python')
 
 # Excelデータの例
 image = Image.open('ttest_rel.png')
+st.image(image)
+
+# 変数設定の注意点
+image = Image.open('ttest_rel_attention.png')
 st.image(image)
 
 # 使い方動画
