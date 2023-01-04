@@ -113,7 +113,7 @@ with st.form(key='check_form'):
             st.write(
                 f'● 【'f'{(ObservedVariable[n])}'f'】　→　【'f'{(MeasuredVariable[n])}】')
             n += 1
-        st.write('　に有意な差が生まれるか検定します。')
+        st.write('　　これらの観測値と実測値の間に有意な差が生まれるか検定します。')
 
     # 分析実行ボタンの表示
     TTEST_btn = st.form_submit_button('分析実行')
