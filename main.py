@@ -158,9 +158,11 @@ with st.form(key='analyze_form'):
             xm = x.mean()
             ym = y.mean()
             d_beta = xm - ym
-            ds = math.sqrt(
-                ((len(x) - 1) * (xs ** 2) + (len(y) - 1) * (ys ** 2)) / ((len(
-                    x) + len(y)) - 2))
+            xdf = len(x) - 1
+            ydf = len(y) - 1
+            px = pow(xs, 2)
+            py = pow(ys, 2)
+            ds = math.sqrt(((xdf * px) + (ydf * py)) / ((xdf + ydf) - 2))
             d = abs(d_beta / ds)
 
             # p値の判定をsignに格納
@@ -187,55 +189,58 @@ with st.form(key='analyze_form'):
 
             n += 1
 
-        st.dataframe(df1)
-        st.write(ttest)
+            st.dataframe(df1)
+            st.write(ttest)
 
-        # サンプルサイズの取得
-        sample_n = len(dfOv)
+            # サンプルサイズの取得
+            sample_n = len(dfOv)
 
-        st.write('【サンプルサイズ】')
-        st.write(f'全体N ＝'f'{sample_n}')
+            st.write('【サンプルサイズ】')
+            st.write(f'全体N ＝'f'{sample_n}')
 
-        st.write('【分析結果の解釈】')
-        # 各値の初期化、簡素化
-        n = 0
-        vn = VariableList[n]
+            st.write('【分析結果の解釈】')
+            # 各値の初期化、簡素化
+            n = 0
+            vn = VariableList[n]
 
-        # sign の列番号を取得
-        sign_n = df1.columns.get_loc('sign')
-        # DivideVariable[0] + 'M' の列番号を取得
-        xn = df1.columns.get_loc("観測値M")
-        # DivideVariable[1] + 'M' の列番号を取得
-        yn = df1.columns.get_loc("測定値M")
+            # sign の列番号を取得
+            sign_n = df1.columns.get_loc('sign')
+            # DivideVariable[0] + 'M' の列番号を取得
+            xn = df1.columns.get_loc("観測値M")
+            # DivideVariable[1] + 'M' の列番号を取得
+            yn = df1.columns.get_loc("測定値M")
 
-        for interpretation in range(ovRange):
-            if df1.iat[n, sign_n] == "**":
-                if df1.iat[n, xn] > df1.iat[n, yn]:
-                    st.write(
-                        f'{vn}】には有位な差が生まれる（ 観測値　＞　測定値 ）')
-                elif df1.iat[n, xn] < df1.iat[n, yn]:
-                    st.write(
-                        f'{vn}】には有位な差が生まれる（ 観測値　＜　測定値 ）')
+            for interpretation in range(ovRange):
+                if
+            df1.iat[n, sign_n] == "**":
+            if df1.iat[n, xn] > df1.iat[n, yn]:
+                st.write(
+                    f'{vn}】には有位な差が生まれる（ 観測値　＞　測定値 ）')
+            elif df1.iat[n, xn] < df1.iat[n, yn]:
+                st.write(
+                    f'{vn}】には有位な差が生まれる（ 観測値　＜　測定値 ）')
             elif df1.iat[n, sign_n] == "*":
-                if df1.iat[n, xn] > df1.iat[n, yn]:
-                    st.write(
-                        f'{vn}】には有位な差が生まれる（ 観測値　＞　測定値 ）')
-                elif df1.iat[n, xn] < df1.iat[n, yn]:
-                    st.write(
-                        f'{vn}】には有位な差が生まれる（ 観測値　＜　測定値 ）')
+                if
+            df1.iat[n, xn] > df1.iat[n, yn]:
+            st.write(
+                f'{vn}】には有位な差が生まれる（ 観測値　＞　測定値 ）')
+            elif df1.iat[n, xn] < df1.iat[n, yn]:
+            st.write(
+                f'{vn}】には有位な差が生まれる（ 観測値　＜　測定値 ）')
             elif df1.iat[n, sign_n] == "†":
-                if df1.iat[n, xn] > df1.iat[n, yn]:
-                    st.write(
-                        f'{vn}】には有意な差が生まれる傾向にある（ 観測値　＞　測定値 ）')
-                elif df1.iat[n, xn] < df1.iat[n, yn]:
-                    st.write(
-                        f'{vn}】には有意な差が生まれる傾向にある（ 観測値　＜　測定値 ）')
+            if df1.iat[n, xn] > df1.iat[n, yn]:
+                st.write(
+                    f'{vn}】には有意な差が生まれる傾向にある（ 観測値　＞　測定値 ）')
+            elif df1.iat[n, xn] < df1.iat[n, yn]:
+                st.write(
+                    f'{vn}】には有意な差が生まれる傾向にある（ 観測値　＜　測定値 ）')
             elif df1.iat[n, sign_n] == "n.s.":
                 st.write(f'{vn}】には有意な差が生まれない')
 
             n += 1
 
-        TTEST_btn = st.form_submit_button('OK')
+            TTEST_btn = st.form_submit_button('OK')
 
-st.write('ご意見・ご要望は→', 'https://forms.gle/G5sMYm7dNpz2FQtU9', 'まで')
-st.write('© 2022 Daiki Ito. All Rights Reserved.')
+            st.write('ご意見・ご要望は→', 'https://forms.gle/G5sMYm7dNpz2FQtU9',
+                     'まで')
+            st.write('© 2022 Daiki Ito. All Rights Reserved.')
