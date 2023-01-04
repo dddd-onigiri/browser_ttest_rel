@@ -211,31 +211,23 @@ with st.form(key='analyze_form'):
             yn = df1.columns.get_loc("測定値M")
 
             for interpretation in range(ovRange):
-                if
-            df1.iat[n, sign_n] == "**":
-            if df1.iat[n, xn] > df1.iat[n, yn]:
-                st.write(
-                    f'{vn}】には有位な差が生まれる（ 観測値　＞　測定値 ）')
-            elif df1.iat[n, xn] < df1.iat[n, yn]:
-                st.write(
-                    f'{vn}】には有位な差が生まれる（ 観測値　＜　測定値 ）')
-            elif df1.iat[n, sign_n] == "*":
-                if
-            df1.iat[n, xn] > df1.iat[n, yn]:
-            st.write(
-                f'{vn}】には有位な差が生まれる（ 観測値　＞　測定値 ）')
-            elif df1.iat[n, xn] < df1.iat[n, yn]:
-            st.write(
-                f'{vn}】には有位な差が生まれる（ 観測値　＜　測定値 ）')
-            elif df1.iat[n, sign_n] == "†":
-            if df1.iat[n, xn] > df1.iat[n, yn]:
-                st.write(
-                    f'{vn}】には有意な差が生まれる傾向にある（ 観測値　＞　測定値 ）')
-            elif df1.iat[n, xn] < df1.iat[n, yn]:
-                st.write(
-                    f'{vn}】には有意な差が生まれる傾向にある（ 観測値　＜　測定値 ）')
-            elif df1.iat[n, sign_n] == "n.s.":
-                st.write(f'{vn}】には有意な差が生まれない')
+                if df1.iat[n, sign_n] == "**":
+                    if df1.iat[n, xn] > df1.iat[n, yn]:
+                        st.write(f'{vn}】には有位な差が生まれる（ 観測値　＞　測定値 ）')
+                    elif df1.iat[n, xn] < df1.iat[n, yn]:
+                        st.write(f'{vn}】には有位な差が生まれる（ 観測値　＜　測定値 ）')
+                elif df1.iat[n, sign_n] == "*":
+                    if df1.iat[n, xn] > df1.iat[n, yn]:
+                        st.write(f'{vn}】には有位な差が生まれる（ 観測値　＞　測定値 ）')
+                    elif df1.iat[n, xn] < df1.iat[n, yn]:
+                        st.write(f'{vn}】には有位な差が生まれる（ 観測値　＜　測定値 ）')
+                elif df1.iat[n, sign_n] == "†":
+                    if df1.iat[n, xn] > df1.iat[n, yn]:
+                        st.write(f'{vn}】には有意な差が生まれる傾向にある（ 観測値　＞　測定値 ）')
+                    elif df1.iat[n, xn] < df1.iat[n, yn]:
+                        st.write(f'{vn}】には有意な差が生まれる傾向にある（ 観測値　＜　測定値 ）')
+                elif df1.iat[n, sign_n] == "n.s.":
+                    st.write(f'{vn}】には有意な差が生まれない')
 
             n += 1
 
