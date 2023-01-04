@@ -68,57 +68,35 @@ if st.checkbox('データフレームの表示'):
 
 # 変数選択フォーム
 with st.form(key='variable_form'):
-    st.subheader("分析に使用する変数の選択")
-    st.write("")
-    st.write(
-        "ファイルをアップロードした場合、確認ボタンを２回押さないと独立変数の判定が出ません（アップデート予定）")
+    st.subheader("分析に使用する変数（観測値、測定値）の選択")
 
     # 観測値と測定値のセット
-    ivList = df.columns.tolist()
-    dvList = df.columns.tolist()
+    ovList = df.columns.tolist()
+    mvList = df.columns.tolist()
 
-    # セレクトボックス（観測値）
-    IndependentVariable = st.selectbox(
-        '独立変数（群分け変数）※必ず２群にしてください',
-        ivList)
+    # 複数選択（観測値）
+    ObservedVariable = st.multiselect(
+        '観測値（複数選択可）',
+        ovList)
 
-    # 独立変数が２群になっているか確認
-    ivLen = len(df[IndependentVariable].unique())
-    ivType = df[IndependentVariable].dtypes
-
-    if ivLen != 2:
-        st.write(
-            '<span style="color:red">独立変数が2群になっていないため、分析を実行できません。</span>',
-            unsafe_allow_html=True)
-    elif ivType != 'object':
-        st.write(
-            '<span style="color:red">独立変数が数値になっているため、分析を実行できません。</span>',
-            unsafe_allow_html=True)
-        st.write(
-            '<span style="color:red">独立変数を文字列にして、再度アップロードしてください。</span>',
-            unsafe_allow_html=True)
-        st.write(
-            '<span style="color:red">　例１）男性・女性</span>',
-            unsafe_allow_html=True)
-        st.write(
-            '<span style="color:red">　例２）１年・２年</span>',
-            unsafe_allow_html=True)
-    else:
-        st.write(
-            '<span style="color:green">分析可能な独立変数です</span>',
-            unsafe_allow_html=True)
-
-    # 従属変数のリストから独立変数を削除（独立変数を従属変数に入れないため）
-    dvList.remove(IndependentVariable)
-
-    # 複数選択（従属変数）
-    DependentVariable = st.multiselect(
-        '従属変数（複数選択可）',
-        dvList)
+    # 複数選択（観測値）
+    MeasuredVariable = st.multiselect(
+        '測定値（複数選択可）',
+        mvList)
 
     st.write(
         '<span style="color:blue">【注意】従属変数に数値以外のものがある場合、分析できません</span>',
         unsafe_allow_html=True)
+    
+    # 変数の個数があってないときの処理
+    ovRange = len(ObservedVariable)
+    mvRange = len(MeasuredVariable)
+
+    if ovRange != mvRange:
+        st.write("観測値の数と測定値の数を合わせてください")
+    else:
+        st.write("分析可能です")
+
 
     # 確認ボタンの表示
     CHECK_btn = st.form_submit_button('確認')
@@ -126,18 +104,13 @@ with st.form(key='variable_form'):
 # 分析前の確認フォーム
 with st.form(key='check_form'):
     if CHECK_btn:
-        # 独立変数から重複のないデータを抽出し、リストに変換
-        DivideVariable = df[IndependentVariable].unique().tolist()
-
         st.subheader('【分析前の確認】')
-        st.write(
-            f'{IndependentVariable}'
-            f'（{DivideVariable[0]}・{DivideVariable[1]}）によって')
 
         n = 0
-        dvRangeView = len(DependentVariable)
+        ovRangeView = len(ObservedVariable)
+        mvRangeView = len(MeasuredVariable)
         for dvListView in range(dvRangeView):
-            st.write(f'● 'f'{(DependentVariable[n])}')
+            st.write(f'● 'f'{(ObservedVariable[n])}→'f'{(MeasuredVariable[n])}')
             n += 1
         st.write('　に有意な差が生まれるか検定します。')
 
