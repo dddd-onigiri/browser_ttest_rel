@@ -79,6 +79,9 @@ with st.form(key='variable_form'):
     # 複数選択（観測値）
     ObservedVariable = st.multiselect('観測値（複数選択可）', ovList)
 
+    # 従属変数のリストから独立変数を削除（独立変数を従属変数に入れないため）
+    mvList.remove(ObservedVariable)
+
     # 複数選択（測定値）
     MeasuredVariable = st.multiselect('測定値（複数選択可）', mvList)
 
