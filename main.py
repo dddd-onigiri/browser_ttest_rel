@@ -73,7 +73,7 @@ with st.form(key='variable_form'):
     st.subheader("分析に使用する変数（観測値、測定値）の選択")
 
     # 変数設定の注意点
-    if st.checkbox('注意点の表示'):
+    if st.checkbox('注意点の表示（クリックで開きます）'):
         attentionImage = Image.open('ttest_rel_attention.png')
         st.image(attentionImage)
 
