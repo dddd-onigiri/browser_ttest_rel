@@ -9,7 +9,7 @@ from statistics import median, variance
 
 st.set_page_config(page_title="ブラウザt検定(対応なし)", layout="wide")
 
-st.title("ブラウザt検定(対応なし)")
+st.title("ブラウザt検定(対応あり)")
 st.caption("Created by Daiki Ito")
 st.write("")
 st.subheader("ブラウザでt検定　→　表　→　解釈まで出力できるウェブアプリです。")
@@ -17,9 +17,7 @@ st.write("iPad等でも分析を行うことができます")
 st.write("")
 
 st.subheader("【注意事項】")
-st.write('<span style="color:red">群分け変数に数値(0、1等)は使わないでください。</span>',
-         unsafe_allow_html=True)
-st.write("また、excelファイルに不備があるとエラーが出ます")
+st.write("excelファイルに不備があるとエラーが出ます")
 st.write('<span style="color:blue">デフォルトでデモ用データの分析ができます。</span>',
          unsafe_allow_html=True)
 st.write(
@@ -41,7 +39,7 @@ from statistics import median, variance
 st.code(code, language='python')
 
 # Excelデータの例
-image = Image.open('ttest.png')
+image = Image.open('ttest_rel.png')
 st.image(image)
 
 # 使い方動画
@@ -50,7 +48,7 @@ st.image(image)
 # st.video(video_bytes)
 
 # デモ用ファイル
-df = pd.read_excel('ttest_demo.xlsx', sheet_name=0)
+df = pd.read_excel('ttest_demo_rel.xlsx', sheet_name=0)
 
 # xlsxファイルのアップロード
 upload_files_xlsx = st.file_uploader("ファイルアップロード", type='xlsx')
