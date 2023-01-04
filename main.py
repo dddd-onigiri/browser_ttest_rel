@@ -168,6 +168,8 @@ with st.form(key='analyze_form'):
 
         # 各値の初期化
         n = 1
+
+        st.write(summaryListview)
     
 '''
         # t検定結果用データフレーム（df1）の列を指定
