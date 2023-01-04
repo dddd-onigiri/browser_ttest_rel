@@ -1,0 +1,9 @@
+﻿streamlit
+numpy
+pandas
+scipy
+Pillow
+openpyxl
+xlrd
+matplotlib
+japanize_matplotlib
