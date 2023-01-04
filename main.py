@@ -129,7 +129,7 @@ with st.form(key='analyze_form'):
         # リストの名前を取得
         summaryList = []
         for sl in range(ovRangeView):
-            summaryListview = f'● 【'f'{(ObservedVariable[n])}'f'】　→　【'f'{(MeasuredVariable[n])}】'
+            summaryList.append(f'● 【'f'{(ObservedVariable[n])}'f'】　→　【'f'{(MeasuredVariable[n])}】')
             ovRangeView += 1
 
             
