@@ -75,19 +75,15 @@ with st.form(key='variable_form'):
     mvList = df.columns.tolist()
 
     # 複数選択（観測値）
-    ObservedVariable = st.multiselect(
-        '観測値（複数選択可）',
-        ovList)
+    ObservedVariable = st.multiselect('観測値（複数選択可）', ovList)
 
-    # 複数選択（観測値）
-    MeasuredVariable = st.multiselect(
-        '測定値（複数選択可）',
-        mvList)
+    # 複数選択（測定値）
+    MeasuredVariable = st.multiselect('測定値（複数選択可）', mvList)
 
     st.write(
         '<span style="color:blue">【注意】従属変数に数値以外のものがある場合、分析できません</span>',
         unsafe_allow_html=True)
-    
+
     # 変数の個数があってないときの処理
     ovRange = len(ObservedVariable)
     mvRange = len(MeasuredVariable)
@@ -96,7 +92,6 @@ with st.form(key='variable_form'):
         st.write("観測値の数と測定値の数を合わせてください")
     else:
         st.write("分析可能です")
-
 
     # 確認ボタンの表示
     CHECK_btn = st.form_submit_button('確認')
@@ -107,10 +102,9 @@ with st.form(key='check_form'):
         st.subheader('【分析前の確認】')
 
         n = 0
-        ovRangeView = len(ObservedVariable)
-        mvRangeView = len(MeasuredVariable)
-        for dvListView in range(ovRangeView):
-            st.write(f'● 【'f'{(ObservedVariable[n])}'f'】　→　【'f'{(MeasuredVariable[n])}】')
+        for ViewCheck in range(ovRange):
+            st.write(
+                f'● 【'f'{(ObservedVariable[n])}'f'】　→　【'f'{(MeasuredVariable[n])}】')
             n += 1
         st.write('　に有意な差が生まれるか検定します。')
 
@@ -125,14 +119,15 @@ with st.form(key='analyze_form'):
 
         # 各値の初期化
         n = 1
-        
+        m = 0
         # リストの名前を取得
         summaryList = []
-        for sl in range(ovRangeView):
-            summaryList.append(f'● 【'f'{(ObservedVariable[n])}'f'】　→　【'f'{(MeasuredVariable[n])}】')
-            ovRangeView += 1
+        for ListAppend in range(ovRange):
+            summaryList.append(f'{(ObservedVariable[m])}'f'】　→　【'f'{(MeasuredVariable[m])}】')
+            st.write(summaryList)
+            m += 1
+        st.write(f'【'f'{(ObservedVariable[m])}'f'】　→　【'f'{(MeasuredVariable[m])}】')
 
-            
         summaryColumns = ["有効N", "平均値", "中央値", "標準偏差", "分散",
                           "最小値", "最大値"]
 
@@ -141,10 +136,8 @@ with st.form(key='analyze_form'):
         df00_list = df00_list + MeasuredVariable
         df00 = df[df00_list]
 
-
         # サマリ(df0)用のデータフレームのセット
         df0 = pd.DataFrame(index=summaryList, columns=summaryColumns)
-
 
         # サマリ(df0)用のデータフレームに平均値と標準偏差を追加
         for summary in range(ovRange):
@@ -169,8 +162,8 @@ with st.form(key='analyze_form'):
         # 各値の初期化
         n = 1
 
-        st.write(summaryListview)
-    
+        st.write(summaryList)
+
 '''
         # t検定結果用データフレーム（df1）の列を指定
         summaryColumns = ['全体M', '全体S.D', DivideVariable[0] + "M",
