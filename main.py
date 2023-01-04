@@ -8,8 +8,6 @@ import pandas as pd
 from scipy import stats
 from PIL import Image
 
-# from statistics import median, variance
-
 st.set_page_config(page_title="ブラウザt検定(対応あり)", layout="wide")
 
 st.title("ブラウザt検定(対応あり)")
