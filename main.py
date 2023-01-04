@@ -4,7 +4,6 @@ import streamlit as st
 import pandas as pd
 # 実装予定
 # import matplotlib.pyplot as plt
-# import japanize_matplotlib
 from scipy import stats
 from PIL import Image
 
