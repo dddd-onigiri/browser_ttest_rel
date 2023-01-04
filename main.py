@@ -159,9 +159,8 @@ with st.form(key='analyze_form'):
             xm = x.mean()
             ym = y.mean()
             d_beta = xm - ym
-            d = abs(d_beta / math.sqrt(
-                ((len(x) - 1) * (xs * xs) + (len(y) - 1) * (ys * ys)) / len(
-                    x) + len(y) - 2))
+            ds = math.sqrt(((len(x)-1)*xs**2+(len(y)-1)*ys**2)/len(x)*len(y)-2)
+            d = abs(d_beta / ds)
 
             # p値の判定をsignに格納
             sign = ""
