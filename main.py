@@ -7,7 +7,7 @@ from scipy import stats
 from PIL import Image
 from statistics import median, variance
 
-st.set_page_config(page_title="ブラウザt検定(対応なし)", layout="wide")
+st.set_page_config(page_title="ブラウザt検定(対応あり)", layout="wide")
 
 st.title("ブラウザt検定(対応あり)")
 st.caption("Created by Daiki Ito")
@@ -73,11 +73,11 @@ with st.form(key='variable_form'):
     st.write(
         "ファイルをアップロードした場合、確認ボタンを２回押さないと独立変数の判定が出ません（アップデート予定）")
 
-    # 独立変数と従属変数のセット
+    # 観測値と測定値のセット
     ivList = df.columns.tolist()
     dvList = df.columns.tolist()
 
-    # セレクトボックス（独立変数）
+    # セレクトボックス（観測値）
     IndependentVariable = st.selectbox(
         '独立変数（群分け変数）※必ず２群にしてください',
         ivList)
