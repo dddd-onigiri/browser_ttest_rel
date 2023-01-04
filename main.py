@@ -129,11 +129,12 @@ with st.form(key='analyze_form'):
         summaryColumns = ["有効N", "平均値", "中央値", "標準偏差", "分散",
                           "最小値", "最大値"]
 
-        # 目的変数、従属変数から作業用データフレームのセット
+        # 観測値、測定値から作業用データフレームのセット
         df00_list = [ObservedVariable]
         df00_list = df00_list + MeasuredVariable
         df00 = df[df00_list]
 
+'''
         # サマリ(df0)用のデータフレームのセット
         df0 = pd.DataFrame(index=summaryList, columns=summaryColumns)
 
@@ -275,3 +276,5 @@ with st.form(key='analyze_form'):
 
 st.write('ご意見・ご要望は→', 'https://forms.gle/G5sMYm7dNpz2FQtU9', 'まで')
 st.write('© 2022 Daiki Ito. All Rights Reserved.')
+
+'''
