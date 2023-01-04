@@ -70,7 +70,7 @@ if upload_files_xlsx:
     df.dropna(how='any', inplace=True)
 
 # データフレーム表示ボタン
-if st.checkbox('データフレームの表示'):
+if st.checkbox('データフレームの表示（クリックで開きます）'):
     st.dataframe(df, width=0)
 
 # 変数選択フォーム
