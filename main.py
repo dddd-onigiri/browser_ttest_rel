@@ -8,6 +8,7 @@ import pandas as pd
 from scipy import stats
 from PIL import Image
 from statistics import median, variance
+from statsmodels.stats.power import tt_ind_solve_power
 
 st.set_page_config(page_title="ブラウザt検定(対応あり)", layout="wide")
 
@@ -159,7 +160,7 @@ with st.form(key='analyze_form'):
             xm = x.mean()
             ym = y.mean()
             d_beta = xm - ym
-            ds = math.sqrt(((len(x)-1)*xs**2+(len(y)-1)*ys**2)/len(x)*len(y)-2)
+            ds = math.sqrt(((len(x)-1)*(xs**2)+(len(y)-1)*(ys**2))/len(x)+len(y)-2)
             d = abs(d_beta / ds)
 
             # p値の判定をsignに格納
