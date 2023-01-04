@@ -162,7 +162,7 @@ with st.form(key='analyze_form'):
             ydf = len(y) - 1
             px = pow(xs, 2)
             py = pow(ys, 2)
-            ds = math.sqrt(((xdf * px) + (ydf * py)) / ((xdf + ydf) - 2))
+            ds = math.sqrt(((xdf * px) + (ydf * py)) / (xdf + ydf))
             d = abs(d_beta / ds)
 
             # p値の判定をsignに格納
@@ -213,21 +213,21 @@ with st.form(key='analyze_form'):
         for interpretation in range(ovRange):
             if df1.iat[n, sign_n] == "**":
                 if df1.iat[n, xn] > df1.iat[n, yn]:
-                    st.write(f'{vn}】には有位な差が生まれる（ 観測値　＞　測定値 ）')
+                    st.write(f'{vn}には有位な差が生まれる（ 観測値　＞　測定値 ）')
                 elif df1.iat[n, xn] < df1.iat[n, yn]:
-                    st.write(f'{vn}】には有位な差が生まれる（ 観測値　＜　測定値 ）')
+                    st.write(f'{vn}には有位な差が生まれる（ 観測値　＜　測定値 ）')
             elif df1.iat[n, sign_n] == "*":
                 if df1.iat[n, xn] > df1.iat[n, yn]:
-                    st.write(f'{vn}】には有位な差が生まれる（ 観測値　＞　測定値 ）')
+                    st.write(f'{vn}には有位な差が生まれる（ 観測値　＞　測定値 ）')
                 elif df1.iat[n, xn] < df1.iat[n, yn]:
-                    st.write(f'{vn}】には有位な差が生まれる（ 観測値　＜　測定値 ）')
+                    st.write(f'{vn}には有位な差が生まれる（ 観測値　＜　測定値 ）')
             elif df1.iat[n, sign_n] == "†":
                 if df1.iat[n, xn] > df1.iat[n, yn]:
-                    st.write(f'{vn}】には有意な差が生まれる傾向にある（ 観測値　＞　測定値 ）')
+                    st.write(f'{vn}には有意な差が生まれる傾向にある（ 観測値　＞　測定値 ）')
                 elif df1.iat[n, xn] < df1.iat[n, yn]:
-                    st.write(f'{vn}】には有意な差が生まれる傾向にある（ 観測値　＜　測定値 ）')
+                    st.write(f'{vn}には有意な差が生まれる傾向にある（ 観測値　＜　測定値 ）')
             elif df1.iat[n, sign_n] == "n.s.":
-                st.write(f'{vn}】には有意な差が生まれない')
+                st.write(f'{vn}には有意な差が生まれない')
 
             n += 1
 
