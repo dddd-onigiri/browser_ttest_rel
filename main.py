@@ -201,9 +201,9 @@ with st.form(key='analyze_form'):
         # sign の列番号を取得
         sign_n = df1.columns.get_loc('sign')
         # DivideVariable[0] + 'M' の列番号を取得
-        xn = df1.columns.get_loc(vn + "観測値M")
+        xn = df1.columns.get_loc("観測値M")
         # DivideVariable[1] + 'M' の列番号を取得
-        yn = df1.columns.get_loc(vn + "測定値M")
+        yn = df1.columns.get_loc("測定値M")
 
         for interpretation in range(ovRange):
             if df1.iat[n, sign_n] == "**":
