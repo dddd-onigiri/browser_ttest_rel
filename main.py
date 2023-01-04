@@ -158,8 +158,10 @@ with st.form(key='analyze_form'):
             ys = y.std()
             xm = x.mean()
             ym = y.mean()
-            # d_beta = xm - ym
-            # d = abs(d_beta/math.sqrt((len(x)-1)))
+            d_beta = xm - ym
+            d = abs(d_beta / math.sqrt(
+                ((len(x) - 1) * (xs * xs) + (len(y) - 1) * (ys * ys)) / len(
+                    x) + len(y) - 2))
 
             # p値の判定をsignに格納
             sign = ""
@@ -181,7 +183,7 @@ with st.form(key='analyze_form'):
             df1.at[VariableList[n], 't'] = t
             df1.at[VariableList[n], 'p'] = p
             df1.at[VariableList[n], 'sign'] = sign
-            df1.at[VariableList[n], 'd'] = "アプデ"
+            df1.at[VariableList[n], 'd'] = d
 
             n += 1
 
