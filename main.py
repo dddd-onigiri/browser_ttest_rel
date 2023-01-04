@@ -145,9 +145,9 @@ with st.form(key='analyze_form'):
         # サマリ(df0)用のデータフレームのセット
         df0 = pd.DataFrame(index=summaryList, columns=summaryColumns)
 
-'''
+
         # サマリ(df0)用のデータフレームに平均値と標準偏差を追加
-        for summary in range(dvRange):
+        for summary in range(ovRange):
             # 列データの取得（nは従属変数の配列番号）
             y = df00.iloc[:, n]
 
@@ -168,8 +168,8 @@ with st.form(key='analyze_form'):
 
         # 各値の初期化
         n = 1
-        summaryList = [DependentVariable]
-
+    
+'''
         # t検定結果用データフレーム（df1）の列を指定
         summaryColumns = ['全体M', '全体S.D', DivideVariable[0] + "M",
                           DivideVariable[0] + "S.D", DivideVariable[1] + "M",
