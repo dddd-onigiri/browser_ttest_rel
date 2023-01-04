@@ -190,7 +190,6 @@ with st.form(key='analyze_form'):
             n += 1
 
         st.dataframe(df1)
-        st.write(ttest)
 
         # サンプルサイズの取得
         sample_n = len(dfOv)
@@ -234,5 +233,5 @@ with st.form(key='analyze_form'):
     TTEST_btn = st.form_submit_button('OK')
 
 st.write('ご意見・ご要望は→', 'https://forms.gle/G5sMYm7dNpz2FQtU9',
-                     'まで')
+         'まで')
 st.write('© 2022 Daiki Ito. All Rights Reserved.')
