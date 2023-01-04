@@ -74,8 +74,8 @@ with st.form(key='variable_form'):
 
     # 変数設定の注意点
     if st.checkbox('注意点の表示'):
-        image = Image.open('ttest_rel_attention.png')
-        st.image(image)
+        attentionImage = Image.open('ttest_rel_attention.png')
+        st.image(attentionImage)
 
     # 観測値と測定値のセット
     ovList = df.columns.tolist()
