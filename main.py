@@ -122,18 +122,16 @@ with st.form(key='analyze_form'):
     if TTEST_btn:
         st.subheader('【分析結果】')
         st.write('【要約統計量】')
-        # 独立変数の要素の数を取得
-        dvRange = len(DependentVariable)
 
         # 各値の初期化
         n = 1
-        summaryList = [DependentVariable]
+        # summaryList = [DependentVariable]
         summaryColumns = ["有効N", "平均値", "中央値", "標準偏差", "分散",
                           "最小値", "最大値"]
 
         # 目的変数、従属変数から作業用データフレームのセット
-        df00_list = [IndependentVariable]
-        df00_list = df00_list + DependentVariable
+        df00_list = [ObservedVariable]
+        df00_list = df00_list + MeasuredVariable
         df00 = df[df00_list]
 
         # サマリ(df0)用のデータフレームのセット
@@ -158,11 +156,6 @@ with st.form(key='analyze_form'):
         st.dataframe(df0)
 
         st.write('【平均値の差の検定】')
-
-        DivideVariable = df00[IndependentVariable].unique().tolist()
-
-        # 独立変数の要素の数を取得
-        dvRange = len(DependentVariable)
 
         # 各値の初期化
         n = 1
