@@ -96,7 +96,9 @@ with st.form(key='variable_form'):
     mvRange = len(MeasuredVariable)
 
     if ovRange != mvRange:
-        st.write("観測値の数と測定値の数を合わせてください")
+        st.write(
+            '<span style="color:red">観測値の数と測定値の数を合わせてください</span>',
+            unsafe_allow_html=True)
     else:
         st.write(
             '<span style="color:green">分析可能です</span>',
