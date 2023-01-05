@@ -98,7 +98,9 @@ with st.form(key='variable_form'):
     if ovRange != mvRange:
         st.write("観測値の数と測定値の数を合わせてください")
     else:
-        st.write("分析可能です")
+        st.write(
+            '<span style="color:green">分析可能です</span>',
+            unsafe_allow_html=True)
 
     # 確認ボタンの表示
     CHECK_btn = st.form_submit_button('確認')
