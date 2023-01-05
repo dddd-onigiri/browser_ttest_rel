@@ -19,7 +19,7 @@ st.write('対応なしはコチラ→',
 st.write("")
 
 st.subheader("【注意事項】")
-st.write("excelファイルに不備があるとエラーが出ます")
+st.write("Excelファイルに不備があるとエラーが出ます")
 st.write('<span style="color:blue">デフォルトでデモ用データの分析ができます。</span>',
          unsafe_allow_html=True)
 st.write(
