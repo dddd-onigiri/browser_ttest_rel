@@ -49,11 +49,6 @@ if st.checkbox('注意点の表示（クリックで開きます）'):
     attentionImage = Image.open('ttest_rel_attention.png')
     st.image(attentionImage)
 
-# 使い方動画
-# video_file = open('雨音子.mp4', 'rb')  # 動画はテスト
-# video_bytes = video_file.read()
-# st.video(video_bytes)
-
 # デモ用ファイル
 df = pd.read_excel('ttest_rel_demo.xlsx', sheet_name=0)
 
