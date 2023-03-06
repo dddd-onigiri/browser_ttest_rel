@@ -12,6 +12,13 @@ st.set_page_config(page_title="ブラウザt検定(対応あり)", layout="wide"
 st.title("ブラウザt検定(対応あり)")
 st.caption("Created by Daiki Ito")
 st.write("")
+st.write("")
+
+st.write('統合しました！→',
+         'https://dddd-onigiri-easy-stat-top-532p3c.streamlit.app/')
+
+st.write("")
+
 st.subheader("ブラウザでt検定　→　表　→　解釈まで出力できるウェブアプリです。")
 st.write("iPad等でも分析を行うことができます")
 st.write('対応なしはコチラ→',
