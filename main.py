@@ -14,8 +14,8 @@ st.caption("Created by Daiki Ito")
 st.write("")
 st.write("")
 
-st.write('統合しました！→',
-         'https://dddd-onigiri-easy-stat-top-532p3c.streamlit.app/')
+st.write('統合＋リポジトリを移動しました！→',
+         'https://easystat-4-education.streamlit.app/')
 
 st.write("")
 
